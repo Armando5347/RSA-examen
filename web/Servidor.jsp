@@ -15,9 +15,14 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+        <h1>Parte del servidor</h1>
+        <div>Algo que avise que ha llegado un mensaje encriptado</div>
+        <br>
+        <a href='Descifrar'><button>Descifrarlo</button></a>
         <footer class="container-fluid bg-success text-center fixed-bottom footer">
             <strong class="contanier text-white-50">
                 Pagina creada por Damian Jarrillo Armando y Luis Fernando Tenorio Aspiros
             </strong>
         </footer>
+    </body>
 </html>
