@@ -32,8 +32,10 @@ public class DocMagico {
             fs.close();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(DocMagico.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error instancía");
         } catch (IOException ex) {
             Logger.getLogger(DocMagico.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error Instancía");
         }finally{
             try {
                 os.close();
