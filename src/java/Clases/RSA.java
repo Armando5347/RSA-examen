@@ -11,7 +11,8 @@ public class RSA{
     private BigInteger p, q, n;
     private BigInteger phi;
     private BigInteger e, d;
-
+    private String mensaje, descifrado;
+    private BigInteger[] cifrado;
     //constructor de la clase
     public RSA(int tamPrimo){
         this.tamPrimo = tamPrimo;
@@ -57,6 +58,7 @@ public class RSA{
 
     public BigInteger[] encriptar(String mensaje){
         //variables
+        this.mensaje = mensaje;
         int i; 
         byte[] temp = new byte[1];
         byte[] digitos = mensaje.getBytes();
@@ -75,8 +77,8 @@ public class RSA{
             //ciframos
             cifrado[i] = bigdigitos[i].modPow(e, n);
         }
-
-        return (cifrado);
+        this.cifrado = cifrado;
+        return (this.cifrado);
     }
 
     //descifrar
@@ -98,7 +100,8 @@ public class RSA{
         for(int i = 0; i<charArray.length; i++){
             charArray[i] = (char)(descifrado[i].intValue()); 
         }
-        return (new String(charArray));
+        this.descifrado = new String(charArray);
+        return (this.descifrado);
     }
 
     public int getTamPrimo() {
@@ -155,6 +158,30 @@ public class RSA{
 
     public void setD(BigInteger d) {
         this.d = d;
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
+
+    public String getDescifrado() {
+        return descifrado;
+    }
+
+    public void setDescifrado(String descifrado) {
+        this.descifrado = descifrado;
+    }
+
+    public BigInteger[] getCifrado() {
+        return cifrado;
+    }
+
+    public void setCifrado(BigInteger[] cifrado) {
+        this.cifrado = cifrado;
     }
 
     
