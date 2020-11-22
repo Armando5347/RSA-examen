@@ -84,7 +84,7 @@ public class RSA implements Serializable{
 
     //descifrar
 
-    public String desencriptar(BigInteger[] cifrado){
+    public String desencriptar(BigInteger[] cifrado, BigInteger bufd, BigInteger bufn){
 
         BigInteger[] descifrado = new BigInteger[cifrado.length];
 
@@ -92,7 +92,7 @@ public class RSA implements Serializable{
 
         for(int i = 0; i<descifrado.length; i++){
             //aplicado el descifrado
-            descifrado[i] = cifrado[i].modPow(d,n);
+            descifrado[i] = cifrado[i].modPow(bufd,bufn);
         }
 
         //vamos a necesitar un arreglo de caracteres para toda la informacion

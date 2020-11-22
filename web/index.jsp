@@ -20,6 +20,7 @@
                 <br>
                 <a href="arrancarServidor"><button>Ser servidor</button></a>
                 <br>
+                <br>
                 <a href="arrancarCliente"><button>Ser cliente</button></a>
                 <br>
         </main>

@@ -12,6 +12,10 @@
         <servlet-name>Cifrar</servlet-name>
         <servlet-class>Sevlets.Cifrar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Descifrar</servlet-name>
+        <servlet-class>Sevlets.Descifrar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>arrancarServidor</servlet-name>
         <url-pattern>/arrancarServidor</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>Cifrar</servlet-name>
         <url-pattern>/Cifrar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Descifrar</servlet-name>
+        <url-pattern>/Descifrar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

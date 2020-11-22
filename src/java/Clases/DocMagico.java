@@ -22,6 +22,10 @@ import java.util.logging.Logger;
 public class DocMagico implements Serializable {
     
     public DocMagico(){
+        
+    }
+    
+    public void inicializar(){
         FileOutputStream fs = null;
         ObjectOutputStream os = null;
         try {

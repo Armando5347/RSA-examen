@@ -12,6 +12,9 @@
         <title>P servidor</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Parte del servidor</h1>
+        <div>Algo que avise que ha llegado un mensaje encriptado</div>
+        <br>
+        <a href='Descifrar'><button>Descifrarlo</button></a>
     </body>
 </html>

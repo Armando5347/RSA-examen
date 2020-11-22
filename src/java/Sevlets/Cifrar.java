@@ -38,25 +38,23 @@ public class Cifrar extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             DocMagico doc = new DocMagico();
             RSA rsa = new RSA(100);
+            doc.inicializar();
             System.out.println("Un saludo mi gente");
             String mensaje = request.getParameter("mensaje");
             System.out.println(mensaje);
             BigInteger []cifrado = rsa.encriptar(mensaje);
             doc.setDocMagico(rsa);
             
-            
-            String desencriptado = doc.GetDocMagico().desencriptar(cifrado);
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
-            out.println("<html>");
+            out.println("<html lang='es'>");
             out.println("<head>");
             out.println("<title>Prueba temporal de encriptación</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Se ha encriptado</h1>"
+            out.println("<h1>Se ha encriptado</h1> <br>"
                     + "<p>"+Arrays.toString(cifrado)+"</p><br>"
-                    + "<h1>Se ha desencriptado</h1>"
-                    + "<p>"+desencriptado+"</p>");
+                    + "<a href='index.jsp'><button>Volver</button></a>");
             out.println("</body>");
             out.println("</html>");
         }
