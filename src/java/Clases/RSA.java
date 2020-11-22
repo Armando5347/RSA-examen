@@ -1,10 +1,11 @@
 package Clases;
 
+import java.io.Serializable;
 import java.util.*;
 import java.math.BigInteger;
 //import java.io.*;
 
-public class RSA{
+public class RSA implements Serializable{
 
     //variables
     private int tamPrimo;
