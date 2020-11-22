@@ -38,9 +38,9 @@ public class Cifrar extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             DocMagico doc = new DocMagico();
             RSA rsa = new RSA(100);
-            
+            System.out.println("Un saludo mi gente");
             String mensaje = request.getParameter("mensaje");
-            
+            System.out.println(mensaje);
             BigInteger []cifrado = rsa.encriptar(mensaje);
             doc.setDocMagico(rsa);
             

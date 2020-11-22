@@ -20,11 +20,11 @@ public class arrancarCliente extends HttpServlet {
 
     
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+            System.out.println("Soy un servlet");
             response.sendRedirect("Cliente.jsp");
             /* TODO output your page here. You may use following sample code. */
 //            out.println("<!DOCTYPE html>");

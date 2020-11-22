@@ -19,7 +19,7 @@
         <main>
             <h2>Inserte su mensaje</h2>
             <br>
-            <form method="post" action="cifrar">
+            <form method="post" action="Cifrar">
                 <textarea name='mensaje' placeholder="Ingrese su mensaje"></textarea>
                 <br>
                 <input type="submit" value="Enviar">
