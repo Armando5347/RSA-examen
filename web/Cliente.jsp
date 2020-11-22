@@ -12,6 +12,18 @@
         <title>P Cliente</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <header>
+            <h1>Envio de mensaje a encriptar</h1>
+        </header>
+        
+        <main>
+            <h2>Inserte su mensaje</h2>
+            <br>
+            <form method="post" action="cifrar">
+                <textarea name='mensaje' placeholder="Ingrese su mensaje"></textarea>
+                <br>
+                <input type="submit" value="Enviar">
+            </form>
+        </main>
     </body>
 </html>

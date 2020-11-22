@@ -8,6 +8,10 @@
         <servlet-name>arrancarCliente</servlet-name>
         <servlet-class>Sevlets.arrancarCliente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Cifrar</servlet-name>
+        <servlet-class>Sevlets.Cifrar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>arrancarServidor</servlet-name>
         <url-pattern>/arrancarServidor</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>arrancarCliente</servlet-name>
         <url-pattern>/arrancarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Cifrar</servlet-name>
+        <url-pattern>/Cifrar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
