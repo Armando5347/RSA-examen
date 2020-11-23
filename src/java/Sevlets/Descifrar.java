@@ -36,12 +36,18 @@ public class Descifrar extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html lang='es'>");
             out.println("<head>");
-            out.println("<title>Servlet Descifrar</title>");            
+            out.println("<meta charset='utf-8'>");
+            out.println("<title>Servlet Descifrar</title>"
+                    + " <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css\" crossorigin=\"anonymous\">\n" +
+"        <script src=\"https://code.jquery.com/jquery-3.5.1.slim.min.js\" crossorigin=\"anonymous\"></script>\n" +
+"        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js\" crossorigin=\"anonymous\"></script>");            
             out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Texto descifrado</h1> <br>"
+            out.println("<body class='container-fluid'>");
+            out.println("<header class='container-fluid bg-secondary'><h1 class='text-center color-white'>Texto descifrado</h1></header> <hr>"
+                    + "<main class='container'>"
                     + "<p>"+desencriptado+"</p>"+
-                    "<a href='index.jsp'><button>Volver</button></a>");
+                    "<a href='index.jsp'><button class='btn btn-danger'>Volver</button></a>"
+                            + "</main>");
             out.println("</body>");
             out.println("</html>");
         }
