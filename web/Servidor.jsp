@@ -15,10 +15,11 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h1>Parte del servidor</h1>
+        <br>
+        <h1 class='text-center'>Parte del servidor</h1><br>
         <div>Algo que avise que ha llegado un mensaje encriptado</div>
         <br>
-        <a href='Descifrar'><button>Descifrarlo</button></a>
+        <a href='Descifrar'><button class='btn btn-primary text-center'>Descifrarlo</button></a>
         <footer class="container-fluid bg-success text-center fixed-bottom footer">
             <strong class="contanier text-white-50">
                 Pagina creada por Damian Jarrillo Armando y Luis Fernando Tenorio Aspiros
