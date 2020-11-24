@@ -1,0 +1,11 @@
+{
+    "name": "RSA-Examen-JS",
+    "version": "1.0.0",
+    "description": "Elaboración de una preuba con el algoritmo RSA usando JS",
+    "main": "main.js",
+    "keywords": ["util", "functional", "server", "client", "browser"],
+    "author": "Armando Damian Jarillo Hernández y Luis Fernando Tenorio Aspiros",
+    "contributors": [],
+    "dependencies": {},
+        "license": "ISC"
+}
