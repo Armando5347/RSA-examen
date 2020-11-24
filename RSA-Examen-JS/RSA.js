@@ -5,3 +5,41 @@
  */
 
 
+const bigint = require("big-integer");
+
+let p, q, n;
+
+let phi;
+
+let e, d;
+
+let tamPrimos = 100;
+
+function init(){}{
+    generarPrimos();
+    generarClaves();
+}
+
+function generarPrimos(){
+    p = bigInt();
+    do{
+        q = bigInt();
+    }while(q.compare(p) === 0);
+}
+function generarClaves(){
+    n = p.multiply(q);
+    
+    phi = p.subtract(bigInt.one); //p-1
+
+        phi = phi.multiply(q.subtract(bigInt.one));
+}
+
+function encriptar(msj){
+    let i;
+   //arreglos
+   //otro arreglo
+}
+
+function desencriptar(cifrado, n ,d){
+    
+}

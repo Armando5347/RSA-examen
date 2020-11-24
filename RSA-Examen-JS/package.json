@@ -3,9 +3,17 @@
     "version": "1.0.0",
     "description": "Elaboración de una preuba con el algoritmo RSA usando JS",
     "main": "main.js",
-    "keywords": ["util", "functional", "server", "client", "browser"],
+    "keywords": [
+        "util",
+        "functional",
+        "server",
+        "client",
+        "browser"
+    ],
     "author": "Armando Damian Jarillo Hernández y Luis Fernando Tenorio Aspiros",
     "contributors": [],
-    "dependencies": {},
-        "license": "ISC"
+    "dependencies": {
+        "big-integer": "^1.6.48"
+    },
+    "license": "ISC"
 }
