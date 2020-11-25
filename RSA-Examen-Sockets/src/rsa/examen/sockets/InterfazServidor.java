@@ -31,7 +31,7 @@ class InterfazServidor extends Thread{
     RSA rsa = new RSA(100, "Servidor");
     ProcesadorMensajes procesador;
     ArrayList<Socket> clientes = new ArrayList<Socket>();
-    JScrollPane p_msj = new JScrollPane();
+    JPanel p_msj = new JPanel();
     JPanel ptit = new JPanel();
     JPanel pbody = new JPanel();
     Font ft = new Font("Arial", Font.BOLD, 40);
@@ -118,7 +118,7 @@ class InterfazServidor extends Thread{
         JLabel subtit = new JLabel("Mensajes recibidos");
         subtit.setFont(new Font("Arial",Font.PLAIN, 30));
         pbody.setLayout(new BorderLayout(2,2));
-        pbody.add(subtit);
+        pbody.add(subtit, BorderLayout.NORTH);
         
         p_msj.setAlignmentX(0);
         p_msj.setLayout(new ScrollPaneLayout());
