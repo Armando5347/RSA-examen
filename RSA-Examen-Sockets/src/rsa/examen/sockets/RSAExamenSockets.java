@@ -16,6 +16,8 @@ public class RSAExamenSockets {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        InterfazServidor si = new InterfazServidor();
+        si.start();
     }
     
 }
