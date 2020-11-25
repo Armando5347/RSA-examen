@@ -18,11 +18,12 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.io.Serializable;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
-class InterfazCliente {
+class InterfazCliente implements Serializable{
     JFrame ventana = new JFrame("Usuario");
     JLabel titulo;
     JPanel body = new JPanel();
@@ -42,7 +43,7 @@ class InterfazCliente {
             cliente = new Socket ("localhost", 8080);
             rsa = new RSA(100,user);
             
-            ventana.setMinimumSize(new Dimension(800,500));
+            ventana.setMinimumSize(new Dimension(400,300));
             ventana.setLayout(new BorderLayout(5,5));
             ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             hacerHead();

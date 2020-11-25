@@ -10,6 +10,7 @@ import java.io.DataOutputStream;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.OutputStream;
+import java.io.Serializable;
 import java.net.Socket;
 import java.util.ArrayList;
 import javax.swing.JScrollPane;
@@ -18,21 +19,22 @@ import javax.swing.JScrollPane;
  *
  * @author maste
  */
-class ProcesadorMensajes extends Thread{
+class ProcesadorMensajes extends Thread implements Serializable{
     RSA rsa = new RSA(100, "servidor");
-    ArrayList<Socket> clientes;
+    Socket cliente;
     ArrayList<Mensaje> mensajes;
     String mensaje;
     RSA rsaCliente;
-    ProcesadorMensajes(ArrayList<Socket> clientes,ArrayList<Mensaje> mensajes) {
-        this.clientes = clientes;
+    ProcesadorMensajes(Socket cliente,ArrayList<Mensaje> mensajes) {
+        this.cliente = cliente;
         //this.cliente = cliente;
         this.mensajes = mensajes;
         start();
         }
     @Override
     public void run(){
-        for (Socket cliente : clientes) {
+        boolean activo = true;
+        do{
             try {
                 InputStream is = cliente.getInputStream();
                 ObjectInputStream oi = new ObjectInputStream(is);
@@ -44,12 +46,12 @@ class ProcesadorMensajes extends Thread{
                 System.out.println("mjs: "+this.mensajes);
                 oi.close();
                 is.close();
-                cliente.close();
+                activo = false;
             }catch(Exception e) {
                 e.getMessage();
                 e.printStackTrace();
             }
-        }
+        }while(activo);
     }
 
     public ArrayList<Mensaje> getMensajes() {

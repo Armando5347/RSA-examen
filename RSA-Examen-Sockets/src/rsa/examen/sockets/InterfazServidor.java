@@ -14,6 +14,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -26,7 +28,7 @@ class InterfazServidor extends Thread{
     
     ServerSocket serversock;
     Socket cliente;
-    
+    RSA rsa = new RSA(100, "Servidor");
     ProcesadorMensajes procesador;
     ArrayList<Socket> clientes = new ArrayList<Socket>();
     JScrollPane p_msj = new JScrollPane();
@@ -44,7 +46,7 @@ class InterfazServidor extends Thread{
             serversock = new ServerSocket(8080);
             
            
-            ventana.setMinimumSize(new Dimension(800,500));
+            ventana.setMinimumSize(new Dimension(500,400));
             ventana.setLayout(new BorderLayout(5,5));
             ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
              hacerHead();
@@ -64,10 +66,42 @@ class InterfazServidor extends Thread{
                Thread.sleep(2000);
                cliente = serversock.accept();
                clientes.add(cliente);
-               procesador = new ProcesadorMensajes(clientes, mensajes);
+               //procesador = new ProcesadorMensajes(cliente, mensajes);
+               InputStream is = cliente.getInputStream();
+                ObjectInputStream oi = new ObjectInputStream(is);
+                RSA rsaCliente= (RSA) oi.readObject();
+                String descifrado = rsa.desencriptar(rsaCliente.getCifrado(), rsaCliente.getD(), rsaCliente.getN());
+                System.out.println("Mensaje en el descifrado: "+descifrado);
+                Mensaje msjb = new Mensaje(descifrado, rsaCliente.getUser());
+                this.mensajes.add(msjb);
+                System.out.println("mjs: "+this.mensajes);
+                oi.close();
+                is.close();
                System.out.println("Actualizando...");
-               actualizarMesnajes();
+               //actualizarMesnajes();
+               //mensajes = procesador.getMensajes();
+        System.out.println("Mesajes: "+mensajes);
+        //p_msj.removeAll();
+        for (int i = 0; i < mensajes.size(); i++) {
+            Mensaje msj = mensajes.get(i);
+            System.out.println("El mensaje en SI: " +msj.getMensaje());
+            JTextField msj_input = new JTextField(msj.getMensaje());
+            JLabel msj_tit = new JLabel(msj.getAutor());
+            msj_tit.setFont(ft);
+            msj_input.setFont(fmsj);
+            msj_tit.repaint();
+            msj_input.repaint();
+            msj_tit.updateUI();
+            msj_input.updateUI();
+            p_msj.add(msj_tit);
+            p_msj.add(msj_input);
+            p_msj.repaint();
+            p_msj.updateUI();
+            
+        }
            } catch (InterruptedException ex) {
+               Logger.getLogger(InterfazServidor.class.getName()).log(Level.SEVERE, null, ex);
+           } catch (ClassNotFoundException ex) {
                Logger.getLogger(InterfazServidor.class.getName()).log(Level.SEVERE, null, ex);
            }
        }
@@ -94,25 +128,6 @@ class InterfazServidor extends Thread{
     }
 
     private void actualizarMesnajes() {
-        mensajes = procesador.getMensajes();
-        System.out.println("Mesnajes: "+mensajes);
-        p_msj.removeAll();
-        for (int i = 0; i < mensajes.size(); i++) {
-            Mensaje msj = mensajes.get(i);
-            System.out.println("El mensaje en SI: " +msj.getMensaje());
-            JTextField msj_input = new JTextField(msj.getMensaje());
-            JLabel msj_tit = new JLabel(msj.getAutor());
-            msj_tit.setFont(ft);
-            msj_input.setFont(fmsj);
-            msj_tit.repaint();
-            msj_input.repaint();
-            msj_tit.updateUI();
-            msj_input.updateUI();
-            p_msj.add(msj_tit);
-            p_msj.add(msj_input);
-            p_msj.repaint();
-            p_msj.updateUI();
-            
-        }
+        
     }
 }
