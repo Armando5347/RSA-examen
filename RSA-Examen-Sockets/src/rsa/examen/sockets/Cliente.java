@@ -13,6 +13,6 @@ public class Cliente {
     
     public static void main(String []args){
         InterfazCliente ui = new InterfazCliente();
-        ui.init();
+        ui.start();
     }
 }

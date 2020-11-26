@@ -11,6 +11,7 @@ package rsa.examen.sockets;
  */
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.io.IOException;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
+import javax.swing.border.Border;
 
 class InterfazServidor extends Thread{
     JFrame ventana = new JFrame("Servidor");
@@ -34,6 +36,7 @@ class InterfazServidor extends Thread{
     JPanel p_msj = new JPanel();
     JPanel ptit = new JPanel();
     JPanel pbody = new JPanel();
+    Border borde = BorderFactory.createLineBorder(Color.black, 2);
     Font ft = new Font("Arial", Font.BOLD, 40);
     Font fst = new Font("Arial", Font.ITALIC, 30);
     Font fmsj = new Font("Arual", Font.PLAIN, 20);
@@ -61,7 +64,7 @@ class InterfazServidor extends Thread{
 
     private void bucleSockets() throws IOException {
        while(true){
-           try {
+            try {
                System.out.println("El while");
                Thread.sleep(2000);
                cliente = serversock.accept();
@@ -77,28 +80,31 @@ class InterfazServidor extends Thread{
                 System.out.println("mjs: "+this.mensajes);
                 oi.close();
                 is.close();
-               System.out.println("Actualizando...");
-               //actualizarMesnajes();
-               //mensajes = procesador.getMensajes();
-        System.out.println("Mesajes: "+mensajes);
-        //p_msj.removeAll();
-        for (int i = 0; i < mensajes.size(); i++) {
-            Mensaje msj = mensajes.get(i);
-            System.out.println("El mensaje en SI: " +msj.getMensaje());
-            JTextField msj_input = new JTextField(msj.getMensaje());
-            JLabel msj_tit = new JLabel(msj.getAutor());
-            msj_tit.setFont(ft);
-            msj_input.setFont(fmsj);
-            msj_tit.repaint();
-            msj_input.repaint();
-            msj_tit.updateUI();
-            msj_input.updateUI();
-            p_msj.add(msj_tit);
-            p_msj.add(msj_input);
-            p_msj.repaint();
-            p_msj.updateUI();
-            
-        }
+                System.out.println("Actualizando...");
+                //actualizarMesnajes();
+                //mensajes = procesador.getMensajes();
+                System.out.println("Mesajes: "+mensajes);
+                p_msj.removeAll();
+                for (int i = 0; i < mensajes.size(); i++) {
+                    Mensaje msj = mensajes.get(i);
+                    System.out.println("El mensaje en SI: " +msj.getMensaje());
+                    JTextField msj_input = new JTextField(msj.getMensaje());
+                    JLabel msj_tit = new JLabel(msj.getAutor()+" dice:");
+                    msj_tit.setFont(fst);
+                    msj_input.setFont(fmsj);
+                    msj_input.setEditable(false);
+                    msj_input.setMaximumSize(new Dimension(800,30));
+                    msj_tit.setMaximumSize(new Dimension(400,30));
+                    msj_tit.repaint();
+                    msj_input.repaint();
+                    msj_tit.updateUI();
+                    msj_input.updateUI();
+                    p_msj.add(msj_tit);
+                    p_msj.add(msj_input);
+                    p_msj.repaint();
+                    p_msj.updateUI();
+
+                }
            } catch (InterruptedException ex) {
                Logger.getLogger(InterfazServidor.class.getName()).log(Level.SEVERE, null, ex);
            } catch (ClassNotFoundException ex) {
@@ -110,7 +116,9 @@ class InterfazServidor extends Thread{
     private void hacerHead() {
        JLabel titulo = new JLabel("Servidor de mensajes RSA");
        titulo.setFont(ft);
+       ptit.setBackground(Color.cyan);
        ptit.add(titulo);
+       ptit.setBorder(borde);
        ventana.add(ptit,BorderLayout.NORTH);
     }
 
@@ -119,15 +127,12 @@ class InterfazServidor extends Thread{
         subtit.setFont(new Font("Arial",Font.PLAIN, 30));
         pbody.setLayout(new BorderLayout(2,2));
         pbody.add(subtit, BorderLayout.NORTH);
-        
+        pbody.setBorder(borde);
         p_msj.setAlignmentX(0);
-        p_msj.setLayout(new ScrollPaneLayout());
-        p_msj.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+        p_msj.setLayout(new BoxLayout(p_msj, BoxLayout.Y_AXIS));
+        //p_msj.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
         pbody.add(p_msj, BorderLayout.CENTER);
         ventana.add(pbody, BorderLayout.CENTER);
     }
 
-    private void actualizarMesnajes() {
-        
-    }
 }
