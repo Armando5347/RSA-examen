@@ -5,9 +5,10 @@ import java.util.*;
 import java.math.BigInteger;
 //import java.io.*;
 
-public class RSA{
+public class RSA implements Serializable{
 
     //variables
+    private String user;
     private int tamPrimo;
     private BigInteger p, q, n;
     private BigInteger phi;
@@ -15,8 +16,9 @@ public class RSA{
     private String mensaje, descifrado;
     private BigInteger[] cifrado;
     //constructor de la clase
-    public RSA(int tamPrimo){
+    public RSA(int tamPrimo, String user){
         this.tamPrimo = tamPrimo;
+        this.user = user;
         generarPrimos();
         generarClaves();
     }
@@ -183,6 +185,14 @@ public class RSA{
 
     public void setCifrado(BigInteger[] cifrado) {
         this.cifrado = cifrado;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 
     
