@@ -21,6 +21,7 @@ const io = SocketIO(server);
 
 //RSA
 const NodeRSA = require('node-rsa'); 
+const { deserialize } = require('v8');
 const key = new NodeRSA({b: 512});
 
 //web sockets
@@ -36,6 +37,11 @@ io.on('connection', (socket) => {
         const decrypted = key.decrypt(encrypted, 'utf8');
         console.log('decrypted: ', decrypted);
         io.emit('Mensajes', data);
+        io.emit('msg-enc', {
+            msg:encrypted,
+            msgd:decrypted,
+            user:data.username
+        });
     });
 });
 
