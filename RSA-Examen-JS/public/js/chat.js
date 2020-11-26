@@ -69,12 +69,26 @@ const pu = "-----BEGIN PUBLIC KEY-----"
 +"-----END PUBLIC KEY-----";
 public.importKey(pu);
 */
-
+/*
+const NodeRSA = require(["https://github.com/rzcoder/node-rsa/blob/master/src/NodeRSA.js"]); 
+const public = new NodeRSA();
+const pu = "-----BEGIN PUBLIC KEY-----"
++"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArfdel1cHtyR2/9Wzk5Jx"
++"GcCHwhEUr8x4+Lx7nhcB+YUC94YjAlaKB9aCQMrHpeSNdVn0JNmOtQTpBdY9Zv6r"
++"e0984T5kCAIJqSg+JakKEsss1GAPO6qVuKeHY6pK4qPgIrZcbdsnHP5e5otrOJRJ"
++"jKZIKUHiXJ03RnTtQmpVzi390qUpCJZoZCvnD2AN8FHvwXFtBj9Vw9e8aqTW7sym"
++"DWTK3+H1aOkOQ0UnhwWOdFoEyKOfiki/6a1263LZ/42dXUbMqhEtXJ+rqmtWkqF5"
++"NOPdyIKilBPzpRFSInhRyYxmucUwRsDonpP/fSOUCxLJw7mdcxQbZ1tBxQHcNrdO"
++"MwIDAQAB"
++"-----END PUBLIC KEY-----";
+public.importKey(pu);
+*/
 //Un script para hacer eso
 btn.addEventListener('click', function () {
     //console.log(text.value);
     //var m = private2.encryptPrivate(text.value, 'base64');
     console.log("hizo click");
+    //console.log(m);
     socket.emit('message', {
         username:name.value,
         msg:text.value
