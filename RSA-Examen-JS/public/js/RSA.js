@@ -31,7 +31,7 @@ function generarClaves(){
     
     phi = p.subtract(bigInt.one); //p-1
 
-        phi = phi.multiply(q.subtract(bigInt.one));
+    phi = phi.multiply(q.subtract(bigInt.one));
 }
 
 function encriptar(msj){

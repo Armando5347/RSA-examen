@@ -23,13 +23,16 @@ and open the template in the editor.
     <body>
         <br>
         <h1 class='text-center'>Parte del servidor</h1><br>
-        <div>Algo que avise que ha llegado un mensaje encriptado</div>
+        <h2 class='text-center'>Entradas del servidor</h2>
+        <div id="inputs"></div>
         <br>
-        <a href=''><button class='btn btn-primary text-center'>Descifrarlo</button></a>
+        <!--<a href=''><button class='btn btn-primary text-center'>Descifrarlo</button></a>-->
         <footer class="container-fluid bg-success text-center fixed-bottom footer">
             <strong class="contanier text-white-50">
                 Pagina creada por Damian Jarrillo Armando y Luis Fernando Tenorio Aspiros
             </strong>
         </footer>
     </body>
+    <script src="/socket.io/socket.io.js" charset="utf-8"></script>
+    <script src="js/serve.js"></script>
 </html>
