@@ -37,7 +37,23 @@ function generarClaves(){
 function encriptar(msj){
     let i;
    //arreglos
+    let temp = new byte[1];
+    let digitos = msj.getBytes();
+    let bigdigitos = BigInt[digitos.length];
    //otro arreglo
+
+    for(i = 0; i<bigdigitos.length; i++){
+        temp[0] = digitos[i];
+        bigdigitos[i] = temp;
+    }
+
+    let cifrado = new bigInt();
+    for(i = 0; i<bigdigitos.length; i++){
+        //ciframos
+        cifrado[i] = bigdigitos[i].modPow(e, n);
+    }
+
+    return cifrado;
 }
 
 function desencriptar(cifrado, n ,d){
