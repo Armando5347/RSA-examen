@@ -88,7 +88,7 @@ io.on('connection', (socket) => {
         //console.log('decrypted: ', decrypted);
 
         io.emit('Mensajes', {
-            msg:text,
+            msg:encrypted,
             username:data.username
         });
         io.emit('msg-enc', {

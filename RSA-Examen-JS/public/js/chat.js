@@ -67,13 +67,14 @@ const pu = "-----BEGIN PUBLIC KEY-----"
 +"NOPdyIKilBPzpRFSInhRyYxmucUwRsDonpP/fSOUCxLJw7mdcxQbZ1tBxQHcNrdO"
 +"MwIDAQAB"
 +"-----END PUBLIC KEY-----";
+public.importKey(pu);
 */
-//public.importKey(pu);
 
 //Un script para hacer eso
 btn.addEventListener('click', function () {
     //console.log(text.value);
     //var m = private2.encryptPrivate(text.value, 'base64');
+    console.log("hizo click");
     socket.emit('message', {
         username:name.value,
         msg:text.value
