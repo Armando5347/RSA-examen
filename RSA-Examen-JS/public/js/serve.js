@@ -1,4 +1,4 @@
-//Este socket va a ser pasivo solo recibe y rebive
+//Este socket va a ser pasivo solo recibe y recibe
 const socket = io();
 const input = document.getElementById("inputs");
 
