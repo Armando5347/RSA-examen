@@ -18,6 +18,8 @@ and open the template in the editor.
 
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     </head>
     <body>
         <br>
@@ -29,22 +31,26 @@ and open the template in the editor.
             <br>
             <div class="row">
                 <div class="col-md-1"></div>
-                <div class="col-md-5" id="messages">
-                    <h4 class="text-justify text-center">Mensajes</h4>
-                    
-                </div>
-                <div class="col-md-1"></div>
                 <div class=" col-md-4">
                     <div class="card ">
-                        <div>
+                        <div class="card-body">
                             <h4 class="text-justify text-center" >Inserte su mensaje</h4>
+                            <br>
                             <input type="text" name="user" id="user"  placeholder="Ingrese su nombre de usuario" class="form-control">
+                            <br>
                             <textarea name='mensaje' placeholder="Ingrese su mensaje" class="form-control" id="text"></textarea>
                             <br>
-                            <input type="submit" value="Enviar" class="btn btn-success form-control" id="btn-enviar" >
+                            <!--<input type="submit" value="Enviar" class="btn btn-success form-control" id="btn-enviar" >-->
+                            <a class="btn btn-success form-control" id="btn-enviar" >Enviar <i class="fas fa-sign-in-alt"></i></a>
                         </div>
                     </div>
                 </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <h4 class="text-justify text-center">Mensajes</h4>
+                    <di id="messages"></di>
+                </div>
+                
                 <div class="col-md-1"></div>
             </div>
         </main>

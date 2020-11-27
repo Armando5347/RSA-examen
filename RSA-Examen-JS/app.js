@@ -79,14 +79,8 @@ io.on('connection', (socket) => {
     //CLientes recibiendo datos
     socket.on('message', (data) => {
         const text = public2.decryptPublic(data.msg, 'utf8');
-        console.log(text);
-        //const encrypted = key.encrypt(text, 'base64');
         const encrypted = private.encryptPrivate(text, 'base64');
-        //console.log('encrypted: ', encrypted);
         //Desincriptarlo con la publica
-        //const decrypted = public2.decryptPublic(encrypted, 'utf8');
-        //console.log('decrypted: ', decrypted);
-
         io.emit('Mensajes', {
             msg:encrypted,
             username:data.username

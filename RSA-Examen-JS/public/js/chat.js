@@ -63,6 +63,9 @@ btn.addEventListener('click', function () {
 });
 
 socket.on('Mensajes', (data) => {
+    if (output.children.length > 4) {
+        output.children[0].remove();
+    }
     var md = public.decryptPublic(data.msg, 'utf8');
     output.innerHTML += '<div class="alert alert-info">'+
     '<strong>'+data.username+'</strong>: '+md+
@@ -70,6 +73,9 @@ socket.on('Mensajes', (data) => {
 });
 
 socket.on('Conectado', (data) => {
+    if (output.children.length > 4) {
+        output.children[0].remove();
+    }
     console.log("Nuevo usuario conectado");
     output.innerHTML += '<div class="alert alert-light">'+
     '<strong>Nuevo Usuario conectado ID socket</strong>: '+data+
