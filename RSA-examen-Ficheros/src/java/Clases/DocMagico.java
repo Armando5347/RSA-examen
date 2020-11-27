@@ -30,7 +30,7 @@ public class DocMagico implements Serializable {
         ObjectOutputStream os = null;
         try {
             RSA rsanulo = null;
-            fs = new FileOutputStream("CifradoRSA.txt");
+            fs = new FileOutputStream("CifradoRSA.dat");
             os = new ObjectOutputStream(fs);
             os.writeObject(rsanulo);
             os.close();
@@ -56,7 +56,7 @@ public class DocMagico implements Serializable {
         ObjectInputStream oi = null;
         RSA rsa = null;
         try{
-            fi = new FileInputStream("CifradoRSA.txt");
+            fi = new FileInputStream("CifradoRSA.dat");
             oi = new ObjectInputStream(fi);
             rsa = (RSA) oi.readObject();
         } catch (IOException | ClassNotFoundException ex) {
@@ -76,7 +76,7 @@ public class DocMagico implements Serializable {
         FileOutputStream fo = null;
         ObjectOutputStream oo = null;
         try{
-            fo = new FileOutputStream("CifradoRSA.txt");
+            fo = new FileOutputStream("CifradoRSA.dat");
             oo = new ObjectOutputStream(fo);
             oo.writeObject(rsa);
         } catch (IOException ex) {
