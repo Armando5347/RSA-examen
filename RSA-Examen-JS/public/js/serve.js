@@ -16,7 +16,7 @@ socket.on('Conectado', (data) => {
 socket.on('msg-enc', (data) => {
     if (input.children.length > 4) {
         input.children[0].remove();
-        input.children[1].remove();
+        input.children[0].remove();
     }
     let tex = data.msg.split("");
     const regex = /[,]/gi;

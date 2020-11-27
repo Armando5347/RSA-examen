@@ -51,15 +51,28 @@ public.importKey(pu);
 private2.importKey(pri2);
 //Un script para hacer eso
 btn.addEventListener('click', function () {
-    //console.log(text.value);
-    var m = private2.encryptPrivate(text.value, 'base64');
-    console.log("hizo click");
-    console.log(m);
-    socket.emit('message', {
-        username:name.value,
-        msg:m
-    });
-    text.value = "";
+    //Ahora tocan las validaciones
+    let regex = /^[a-z0-9_-\s]{3,50}$/ig;
+    let regex2 = /^[a-z0-9_-\s]{3,12}$/ig;
+
+    if (regex2.test(name.value)) {
+        if (regex.test(text.value)) {
+            //EL resto funciona
+            var m = private2.encryptPrivate(text.value, 'base64');
+            console.log("hizo click");
+            console.log(m);
+            socket.emit('message', {
+                username:name.value,
+                msg:m
+            });
+            text.value = "";
+        }
+        else {
+            alert("Por favor introducir solo caracteres y numeros de hasta 50 caracteres (no acepta tabulaciones)");
+        }
+    } else {
+        alert("El nombre solo acepta entre 3 y 12 caracteres");
+    }
 });
 
 socket.on('Mensajes', (data) => {
