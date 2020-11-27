@@ -45,7 +45,7 @@ class InterfazCliente  extends Thread implements Serializable{
             do{
                 user = JOptionPane.showInputDialog(null, "Ingrese su nombre");
             }while("".equals(user));
-            cliente = new Socket ("187.202.60.164", 8080);
+            cliente = new Socket ("192.168.1.217", 8080);
             rsa = new RSA(100,user);
             
             ventana.setMinimumSize(new Dimension(400,300));
@@ -95,7 +95,7 @@ class InterfazCliente  extends Thread implements Serializable{
                             os.close();
                     } catch (SocketException ex) {
                         try {
-                            cliente = new Socket("187.202.60.164", 8080);
+                            cliente = new Socket("192.168.1.217", 8080);
                             os = cliente.getOutputStream();
                             ObjectOutputStream op = new ObjectOutputStream(os);
                             //DataOutputStream flujoDOS = new DataOutputStream(os);

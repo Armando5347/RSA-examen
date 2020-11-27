@@ -17,6 +17,7 @@ import java.awt.Font;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -47,8 +48,7 @@ class InterfazServidor extends Thread{
     public void run(){
         try {
             serversock = new ServerSocket(8080);
-            
-           
+            System.out.println();
             ventana.setMinimumSize(new Dimension(500,400));
             ventana.setLayout(new BorderLayout(5,5));
             ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
